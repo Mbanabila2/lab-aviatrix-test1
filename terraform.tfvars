@@ -10,7 +10,6 @@ transit1subnets          = [transit1_public_subnet.value, transit1_private_subne
 gwsizes                  = ["t2.micro", "t3.micro"]
 gwnames                  = ["spoke1", "spoke2", "transit1"]
 aviatrix_vpc_names       = ["spoke1vpc1", "spoke2vpc2", "transit1vpc1"]
-aviatrix_transit_gwnames = [aviatrix_transit_gwname.value]
 spoke1_vpcid             = [spoke1vpcid.value]
 spoke2_vpcid             = [spoke2vpcid.value]
 spoke1securitygroups     = [spoke1securitygroup.value]

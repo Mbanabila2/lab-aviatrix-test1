@@ -23,7 +23,7 @@ resource "aviatrix_spoke_gateway" "spoke2" {
 
 resource "aviatrix_spoke_transit_attachment" "link2" {
   spoke_gw_name   = aviatrix_spoke_gateway.spoke2.gw_name
-  transit_gw_name = var.aviatrix_transit_gwnames[0]
+  transit_gw_name = aviatrix_transit_gateway.transit1.gw_name
 }
 
 

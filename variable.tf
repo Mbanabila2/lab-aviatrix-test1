@@ -43,9 +43,7 @@ variable "gwnames" {
 variable "aviatrix_vpc_names" {
   type = list(any)
 }
-variable "aviatrix_transit_gwnames" {
-  type = list(any)
-}
+
 variable "spoke1_vpcid" {
   type = list(any)
 }

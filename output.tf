@@ -30,10 +30,6 @@ output "spoke2_private_subnet" {
   value = aviatrix_vpc.spoke2vpc2.private_subnets
 }
 
-output "aviatrix_transit_gwname" {
-  value = aviatrix_transit_gateway.transit1.gw_name
-}
-
 output "spoke1securitygroup" {
   value = aviatrix_spoke_gateway.spoke1.security_group_id
 }
