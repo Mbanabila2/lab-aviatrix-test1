@@ -84,14 +84,15 @@ resource "aws_security_group" "websecuritygrps" {
   name   = "websecure2"
   vpc_id = var.spoke2vpcid[0]
   ingress = [
+
     {
       from_port        = 22
       to_port          = 22
       protocol         = "tcp"
-      cidr_blocks      = [var.myips]
+      cidr_blocks      = []
       prefix_list_ids  = []
       ipv6_cidr_blocks = []
-      security_groups  = []
+      security_groups  = [var.spoke2securitygrp2[0]]
       self             = false
       description      = ""
     },
@@ -128,17 +129,7 @@ resource "aws_security_group" "websecuritygrps" {
       self             = false
       description      = ""
     },
-    {
-      from_port        = 22
-      to_port          = 22
-      protocol         = "tcp"
-      cidr_blocks      = []
-      prefix_list_ids  = []
-      ipv6_cidr_blocks = []
-      security_groups  = [var.spoke2securitygrp2[0]]
-      self             = false
-      description      = ""
-    },
+
   ]
   egress = [
     {
