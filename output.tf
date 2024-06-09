@@ -1,39 +1,34 @@
-output "transit1_public_subnet" {
-  value = aviatrix_vpc.transit1vpc1.public_subnets
-}
-
-output "transit1_private_subnet" {
-  value = aviatrix_vpc.transit1vpc1.private_subnets
-}
-
-output "spoke1_public_subnet" {
+output "spoke1publicsubnet" {
   value = aviatrix_vpc.spoke1vpc1.public_subnets
 }
-
-output "spoke1_private_subnet" {
+output "spoke1privatesubnet" {
   value = aviatrix_vpc.spoke1vpc1.private_subnets
 }
 
-output "spoke1vpcid" {
-  value = aviatrix_vpc.spoke1vpc1.vpc_id
+output "transit1publicsubnet" {
+  value = aviatrix_vpc.trasit1vpc1.public_subnets
+}
+output "transit1privatesubnet" {
+  value = aviatrix_vpc.trasit1vpc1.private_subnets
 }
 
-output "spoke2vpcid" {
-  value = aviatrix_vpc.spoke2vpc2.vpc_id
-}
-
-output "spoke2_public_subnet" {
+output "spoke2publicsubnet" {
   value = aviatrix_vpc.spoke2vpc2.public_subnets
 }
-
-output "spoke2_private_subnet" {
+output "spoke2privatesubnet" {
   value = aviatrix_vpc.spoke2vpc2.private_subnets
 }
 
-output "spoke1securitygroup" {
-  value = aviatrix_spoke_gateway.spoke1.security_group_id
+output "spoke1vpcid1" {
+  value = aviatrix_spoke_gateway.spoke1.vpc_id
+}
+output "spoke2vpcid2" {
+  value = aviatrix_spoke_gateway.spoke2.vpc_id
 }
 
-output "spoke2securitygroup" {
+output "spoke1secgrp" {
+  value = aviatrix_spoke_gateway.spoke1.security_group_id
+}
+output "spoke2secgrp" {
   value = aviatrix_spoke_gateway.spoke2.security_group_id
 }

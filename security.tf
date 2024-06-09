@@ -1,6 +1,6 @@
-resource "aws_security_group" "bastion1secgrp" {
+resource "aws_security_group" "bastionsecuritygrps" {
   name   = "secure1"
-  vpc_id = var.spoke1_vpcid[0]
+  vpc_id = var.spoke1vpcid[0]
   ingress = [
     {
       from_port        = 22
@@ -9,21 +9,9 @@ resource "aws_security_group" "bastion1secgrp" {
       cidr_blocks      = [var.myips]
       prefix_list_ids  = []
       ipv6_cidr_blocks = []
-      description      = ""
       security_groups  = []
       self             = false
-    },
-    {
-      from_port        = 22
-      to_port          = 22
-      protocol         = "tcp"
-      cidr_blocks      = []
-      prefix_list_ids  = []
-      ipv6_cidr_blocks = []
       description      = ""
-      security_groups  = [var.spoke1securitygroups[0]]
-      self             = false
-
     },
     {
       from_port        = 0
@@ -32,10 +20,9 @@ resource "aws_security_group" "bastion1secgrp" {
       cidr_blocks      = []
       prefix_list_ids  = []
       ipv6_cidr_blocks = []
-      description      = ""
-      security_groups  = [var.spoke1securitygroups[0]]
+      security_groups  = [var.spoke1securitygrp1[0]]
       self             = false
-
+      description      = ""
     },
     {
       from_port        = 80
@@ -44,10 +31,9 @@ resource "aws_security_group" "bastion1secgrp" {
       cidr_blocks      = []
       prefix_list_ids  = []
       ipv6_cidr_blocks = []
-      description      = ""
-      security_groups  = [var.spoke1securitygroups[0]]
+      security_groups  = [var.spoke1securitygrp1[0]]
       self             = false
-
+      description      = ""
     },
     {
       from_port        = 443
@@ -56,10 +42,20 @@ resource "aws_security_group" "bastion1secgrp" {
       cidr_blocks      = []
       prefix_list_ids  = []
       ipv6_cidr_blocks = []
-      description      = ""
-      security_groups  = [var.spoke1securitygroups[0]]
+      security_groups  = [var.spoke1securitygrp1[0]]
       self             = false
-
+      description      = ""
+    },
+    {
+      from_port        = 22
+      to_port          = 22
+      protocol         = "tcp"
+      cidr_blocks      = []
+      prefix_list_ids  = []
+      ipv6_cidr_blocks = []
+      security_groups  = [var.spoke1securitygrp1[0]]
+      self             = false
+      description      = ""
     },
   ]
   egress = [
@@ -67,25 +63,26 @@ resource "aws_security_group" "bastion1secgrp" {
       from_port        = 0
       to_port          = 0
       protocol         = "-1"
-      cidr_blocks      = []
+      cidr_blocks      = [var.trafficipv4any]
       prefix_list_ids  = []
       ipv6_cidr_blocks = []
-      description      = ""
       security_groups  = []
       self             = false
-
-    }
+      description      = ""
+    },
   ]
-
   tags = {
-    "Name" = "bastion1secgrp"
+    "Name" = "bastionsecuritygrps"
   }
   provider = aws.region1site
 }
 
-resource "aws_security_group" "web1secgrp" {
-  name   = "secure2"
-  vpc_id = var.spoke2_vpcid[0]
+
+
+
+resource "aws_security_group" "websecuritygrps" {
+  name   = "websecure2"
+  vpc_id = var.spoke2vpcid[0]
   ingress = [
     {
       from_port        = 22
@@ -94,21 +91,9 @@ resource "aws_security_group" "web1secgrp" {
       cidr_blocks      = [var.myips]
       prefix_list_ids  = []
       ipv6_cidr_blocks = []
-      description      = ""
       security_groups  = []
       self             = false
-    },
-    {
-      from_port        = 22
-      to_port          = 22
-      protocol         = "tcp"
-      cidr_blocks      = []
-      prefix_list_ids  = []
-      ipv6_cidr_blocks = []
       description      = ""
-      security_groups  = [var.spoke2securitygroups[0]]
-      self             = false
-
     },
     {
       from_port        = 0
@@ -117,10 +102,9 @@ resource "aws_security_group" "web1secgrp" {
       cidr_blocks      = []
       prefix_list_ids  = []
       ipv6_cidr_blocks = []
-      description      = ""
-      security_groups  = [var.spoke2securitygroups[0]]
+      security_groups  = [var.spoke2securitygrp2[0]]
       self             = false
-
+      description      = ""
     },
     {
       from_port        = 80
@@ -129,10 +113,9 @@ resource "aws_security_group" "web1secgrp" {
       cidr_blocks      = []
       prefix_list_ids  = []
       ipv6_cidr_blocks = []
-      description      = ""
-      security_groups  = [var.spoke2securitygroups[0]]
+      security_groups  = [var.spoke2securitygrp2[0]]
       self             = false
-
+      description      = ""
     },
     {
       from_port        = 443
@@ -141,10 +124,20 @@ resource "aws_security_group" "web1secgrp" {
       cidr_blocks      = []
       prefix_list_ids  = []
       ipv6_cidr_blocks = []
-      description      = ""
-      security_groups  = [var.spoke2securitygroups[0]]
+      security_groups  = [var.spoke2securitygrp2[0]]
       self             = false
-
+      description      = ""
+    },
+    {
+      from_port        = 22
+      to_port          = 22
+      protocol         = "tcp"
+      cidr_blocks      = []
+      prefix_list_ids  = []
+      ipv6_cidr_blocks = []
+      security_groups  = [var.spoke2securitygrp2[0]]
+      self             = false
+      description      = ""
     },
   ]
   egress = [
@@ -152,17 +145,16 @@ resource "aws_security_group" "web1secgrp" {
       from_port        = 0
       to_port          = 0
       protocol         = "-1"
-      cidr_blocks      = []
+      cidr_blocks      = [var.trafficipv4any]
       prefix_list_ids  = []
       ipv6_cidr_blocks = []
-      description      = ""
       security_groups  = []
       self             = false
-    }
+      description      = ""
+    },
   ]
-
   tags = {
-    "Name" = "web1secgrp"
+    "Name" = "websecuritygrps"
   }
   provider = aws.region2site
 }

@@ -1,66 +1,76 @@
 variable "regions" {
   type = list(any)
 }
-variable "controllerIp" {
+variable "aviatrixcontrollerip" {
   type = string
 }
-variable "usernames" {
+variable "aviatrixusername" {
   type = string
 }
-variable "passwords" {
+variable "aviatrixpasswd" {
   type = string
 }
-variable "myaccounts" {
+variable "spoke1cidr1" {
   type = string
 }
-variable "transit1block" {
+variable "spoke2cidr2" {
   type = string
 }
-variable "spoke1block" {
-  type = string
-}
-variable "spoke2block" {
+variable "transit1cidr1" {
   type = string
 }
 variable "zones" {
   type = list(any)
 }
-variable "spoke1subnets" {
-  type = list(any)
+
+variable "aviatrixaccountname" {
+  type = string
 }
-variable "spoke2subnets" {
-  type = list(any)
-}
-variable "transit1subnets" {
+variable "gwnames" {
   type = list(any)
 }
 variable "gwsizes" {
   type = list(any)
 }
-variable "gwnames" {
+variable "spoke1publicsubnets1" {
   type = list(any)
 }
-variable "aviatrix_vpc_names" {
-  type = list(any)
-}
-
-variable "spoke1_vpcid" {
+variable "spoke1privatesubnets1" {
   type = list(any)
 }
 
-variable "spoke2_vpcid" {
+variable "transit1publicsubnets1" {
+  type = list(any)
+}
+variable "transit1privatesubnets1" {
   type = list(any)
 }
 
-variable "spoke1securitygroups" {
+variable "spoke2publicsubnets2" {
   type = list(any)
 }
-variable "spoke2securitygroups" {
+variable "spoke2privatesubnets2" {
+  type = list(any)
+}
+
+variable "instancelists" {
+  type = map(any)
+}
+variable "spoke1vpcid" {
+  type = list(any)
+}
+variable "spoke2vpcid" {
   type = list(any)
 }
 variable "myips" {
   type = string
 }
-variable "instancelists" {
-  type = map(any)
+variable "spoke1securitygrp1" {
+  type = list(any)
+}
+variable "spoke2securitygrp2" {
+  type = list(any)
+}
+variable "trafficipv4any" {
+  type = string
 }

@@ -10,9 +10,9 @@ terraform {
 }
 
 provider "aviatrix" {
-  controller_ip = var.controllerIp
-  username      = var.usernames
-  password      = var.passwords
+  controller_ip = var.aviatrixcontrollerip
+  username      = var.aviatrixusername
+  password      = var.aviatrixpasswd
 }
 
 provider "aws" {
